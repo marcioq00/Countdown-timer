@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+body {
+    font-size: 18px;
+    margin: 0;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.box {
+    border: 1px solid black;
+    border-radius: 50%;
+    height: 500px;
+    width: 500px;
+    padding: 50px; 
+}
+.timer {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#hours {
+    background-color: red;
+}

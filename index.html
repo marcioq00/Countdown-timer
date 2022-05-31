@@ -1,32 +1,30 @@
-<!-- Hours:<input type="number" min="0" max="99" id="hours"> <br /> <br />
-Minutes:<input type="number" min="0" max="60" id="minutes"> <br /> <br />
-Seconds:<input type="number" min="0" max="60" id="seconds"> <br /> <br />
-<button type="button" class="start">Click</button>
-<button type="button">Stop</button> <br /> <br />
-
-<span class="display-time-hours"></span>
-<span class="display-time-minutes"></span>
-<span class="display-time"></span> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Countdown-timer</title>
 
     <script src="js/index.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    Hours:<input type="number" min="0" max="99" id="hours"> <br /> <br />
-Minutes:<input type="number" min="0" max="60" id="minutes"> <br /> <br />
-Seconds:<input type="number" min="0" max="60" id="seconds"> <br /> <br />
-<button type="button" class="start">Click</button>
-<button type="button">Stop</button> <br /> <br />
+    <div class="container">
+        <div class="box">
+            <div class="timer">
+                <input type="number" min="0" max="99" id="hours"> 
+                <input type="number" min="0" max="59" id="minutes"> 
+                <input type="number" min="0" max="59" id="seconds"> <br /> <br />
+                <button type="button" class="start">Click</button>
+                <button type="button" class="stop">Stop</button> <br /> <br />
+                
 
-<span class="display-time-hours"></span>
-<span class="display-time-minutes"></span>
-<span class="display-time"></span>
+                <span class="display-time-hours"></span>
+                <span class="display-time-minutes"></span>
+                <span class="display-time"></span>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
