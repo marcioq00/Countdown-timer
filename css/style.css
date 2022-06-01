@@ -7,6 +7,7 @@ html, body {
 body {
     font-size: 18px;
     margin: 0;
+    background-color: gray;
 }
 .container {
     display: flex;
@@ -15,17 +16,25 @@ body {
     height: 100%;
 }
 .box {
+    display: grid;
+    grid-template-rows: 80% 20%;
     border: 1px solid black;
-    border-radius: 50%;
     height: 500px;
     width: 500px;
-    padding: 50px; 
+}
+.box-bottomm {
+    border-radius: 50%;
+    border: 1px solid black;
+    grid-row: 1;
+    height: 100%;
+}
+.box-bottom {
+    grid-row: 2;
+    height: 100%;
 }
 .timer {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-}
-#hours {
-    background-color: red;
+    text-align: center;
 }

@@ -6,25 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown-timer</title>
 
-    <script src="js/index.js" defer></script>
     <link rel="stylesheet" href="css/style.css">
-</head>
+    <script src="js/index.js" defer></script>
+   </head>
 <body>
-    <div class="container">
-        <div class="box">
-            <div class="timer">
-                <input type="number" min="0" max="99" id="hours"> 
-                <input type="number" min="0" max="59" id="minutes"> 
-                <input type="number" min="0" max="59" id="seconds"> <br /> <br />
-                <button type="button" class="start">Click</button>
-                <button type="button" class="stop">Stop</button> <br /> <br />
-                
 
-                <span class="display-time-hours"></span>
-                <span class="display-time-minutes"></span>
-                <span class="display-time"></span>
+<div class="container">
+     <div class="box">
+        <div class="box-bottomm">
+            <div class="timer">
+                <span class="display-time-hours przyciski"></span>
+                <span class="display-time-minutes przyciski"></span>
+                <span class="display-time przyciski"></span>
             </div>
         </div>
-    </div>
+         <div class="box-bottom">
+            H:<input type="number" class="hours">
+            M:<input type="number" class="minutes">
+            S:<input type="number" class="seconds">
+    
+            <br><br>
+            <button class="start">Start</button>
+            <button class="pause">Pause</button>
+            <button class="resume">Resume</button>
+            <button class="stop">Wyczyść</button>
+         </div>
+    </div> 
+    
+</div>
 </body>
 </html>
+ 
+
+
+
+
