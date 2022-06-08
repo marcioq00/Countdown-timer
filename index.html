@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,52 +8,66 @@
 
     <link rel="stylesheet" href="css/style.css">
     <script src="js/index.js" defer></script>
-   </head>
-<body>
-
-<div class="container">
-     <div class="box">
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
         <div class="box-top">
-            <div class="app">
-                <div class="base-timer">
-                    <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <g class="base-timer__circle">
-                            <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
-                            <path
-                              id="base-timer-path-remaining"
-                              stroke-dasharray="283"
-                              class="base-timer__path-remaining"
-                              d="
-                                M 50, 50
-                                m -45, 0
-                                a 45,45 0 1,0 90,0
-                                a 45,45 0 1,0 -90,0
-                              "
-                            ></path>
-                        </g>
-                    </svg>
-                    <span id="base-timer-label" class="base-timer__label">00:00:00</span>
-                </div>
+          <div class="app">
+            <div class="base-timer">
+              <svg
+                class="base-timer__svg"
+                viewBox="0 0 100 100"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g class="base-timer__circle">
+                  <circle
+                    class="base-timer__path-elapsed"
+                    cx="50"
+                    cy="50"
+                    r="45"
+                  ></circle>
+                  <path
+                    id="base-timer-path-remaining"
+                    stroke-dasharray="283"
+                    class="base-timer__path-remaining"
+                    d="
+                            M 50, 50
+                            m -45, 0
+                            a 45,45 0 1,0 90,0
+                            a 45,45 0 1,0 -90,0
+                        "
+                  ></path>
+                </g>
+              </svg>
+              <span id="base-timer-label" class="base-timer__label"
+                >00:00:00</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="box-bottom">
+            <div class="box-bottom-inputs">
+                <label> H:<input type="number" class="hours" placeholder="Hour"> </label>
+                <label> M:<input type="number" class="minutes" placeholder="Minute"> </label>
+                <label> S:<input type="number" class="seconds" placeholder="Seconds"> </label>
+            </div>
+            <div class="box-bottom-buttons">
+                <button class="start">
+                   <img src="img/icons8-play-button-circled-24.png" alt="Play icon"> 
+                </button>
+                <button class="pause">
+                    <img src="/img/icons8-pause-24.png" alt="Pause icon">
+                </button> 
+                <button class="resume">
+                    <img src="img/icons8-resume-button-24.png" alt="Resume icon">
+                </button>
+                <button class="stop">
+                    <img src="/img/icons8-reset-24.png" alt="Reset icon">
+                </button>
             </div>
         </div>
-         <div class="box-bottom">
-            H:<input type="number" class="hours">
-            M:<input type="number" class="minutes">
-            S:<input type="number" class="seconds">
-    
-            <br><br>
-            <button class="start">Start</button>
-            <button class="pause">Pause</button>
-            <button class="resume">Resume</button>
-            <button class="stop">Wyczyść</button>
-         </div>
-    </div> 
-    
-</div>
-</body>
+      </div>
+    </div>
+  </body>
 </html>
- 
-
-
-
-
