@@ -24,12 +24,11 @@ body {
 .box {
   display: grid;
   grid-template-rows: 60% 40%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 700px;
   min-width: 31em;
   width: 700px;
-  /* width: 40em;  */
-  padding: 5px;
+  padding: 25px;
   place-items: center;
   align-items: center;
   justify-content: center;
@@ -51,32 +50,45 @@ body {
 .box-bottom {
   display: grid;
   grid-template-rows: 50% 50%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   grid-row: 2;
   height: 100%;
   padding: 10px;
 }
+
 .box-bottom-inputs {
   grid-row: 2;
   display: flex;
-  background-color: aquamarine;
+  margin-top: 20px;
 }
+
 .box-bottom-buttons {
   grid-row: 1;
   display: flex;
-  background-color: azure;
 }
+.start:hover,
+.pause:hover,
+.resume:hover,
+.stop:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
 .start,
-  .pause,
-  .resume,
-  .stop {
-    background-color: transparent;
-    width: 50%;
-  }
+.pause,
+.resume,
+.stop {
+  background-color: transparent;
+  width: 50%;
+}
+
 .hours,
 .minutes,
 .seconds {
   width: 10em;
+  background-color: transparent;
+  border-radius: 0.5em;
+  height: 3em;
 }
 
 .base-timer {
@@ -161,6 +173,7 @@ body {
     border-radius: 0.5em;
     height: 2.5em;
   }
+
   .box-bottom-inputs {
     grid-row: 1;
     font-size: .8em;
