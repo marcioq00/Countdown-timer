@@ -25,12 +25,15 @@ body {
   display: grid;
   grid-template-rows: 70% 30%;
   border: 1px solid black;
-  height: 550px;
-  width: 550px;
+  height: 550px; 
+  min-width: 31em;
+  width: 700px;
+  /* width: 40em;  */
   padding: 5px;
   place-items: center;
   align-items: center;
   justify-content: center;
+  margin: 20px;
 }
 
 .box-top {
@@ -120,35 +123,40 @@ body {
     border: 1px solid black;
     min-height: 30em;
     height: 600px;
+    min-width: 19em;
     width: 550px;
-    padding: 10px;
-    margin: 20px;
+    margin: 10px;
   }
   .box-bottom {
-    display: flex;
-    /* min-width: 10em; */
     width: 100%;
-    background-color: royalblue;
+    display: grid;
+    grid-template-columns: 50% 50%;
   }
-  /* .hours,
+  .hours,
   .minutes,
   .seconds {
-    background-color: red;
-    margin: 10px;
-  }*/
-  label {
-    display: block;
+    background-color: transparent;
+    border-radius: 0.5em;
+    height: 2.5em;
   }
-  /* .block {
-    width: 100%;
-  } */
-  .box-bottom-inputs {
-    /* background-color: aqua; */
-    width: 100%;
-    border-right: 1px solid yellow;
+  .start, .pause, .resume, .stop {
+    background-color: transparent;
+    width: 50%;
   }
-  .box-bottom-buttons {
-    /* background-color: saddlebrown; */
-    width: 100%; 
+  .box-bottom-inputs { 
+    font-size: .8em;
+    display: flex;
+    flex-wrap: wrap;
+    grid-column: 1;
+    min-width: 19em;
+    width: 100%;
+    height: 100%;
   } 
+  .box-bottom-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    grid-column: 2;
+    width: 100%;
+    height: 100%;
+  }   
 }
