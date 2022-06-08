@@ -1,22 +1,26 @@
 * {
   box-sizing: border-box;
 }
+
 html,
 body {
   height: 100vh;
 }
+
 body {
   font-family: sans-serif;
   font-size: 18px;
   margin: 0;
   background-color: lightblue;
 }
+
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
 }
+
 .box {
   display: grid;
   grid-template-rows: 70% 30%;
@@ -28,26 +32,30 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .box-top {
-  /* border: 1px solid black; */
   grid-row: 1;
   height: 100%;
 }
+
 .app {
-  /* background-color: red; */
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .box-bottom {
   border: 1px solid black;
   grid-row: 2;
   height: 100%;
+  padding: 10px;
 }
-.hours, .minutes, .seconds {
+
+.hours,
+.minutes,
+.seconds {
   width: 10em;
-  margin: 10px;
 }
 .base-timer {
   position: relative;
@@ -79,9 +87,11 @@ body {
   stroke: currentColor;
   color: gray;
 }
+
 .base-timer__path-remaining.basic {
   color: gray;
 }
+
 .base-timer__path-remaining.green {
   color: rgb(65, 184, 131);
 }
@@ -103,4 +113,42 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 48px;
+}
+
+@media (max-width: 576px) {
+  .box {
+    border: 1px solid black;
+    min-height: 30em;
+    height: 600px;
+    width: 550px;
+    padding: 10px;
+    margin: 20px;
+  }
+  .box-bottom {
+    display: flex;
+    /* min-width: 10em; */
+    width: 100%;
+    background-color: royalblue;
+  }
+  /* .hours,
+  .minutes,
+  .seconds {
+    background-color: red;
+    margin: 10px;
+  }*/
+  label {
+    display: block;
+  }
+  /* .block {
+    width: 100%;
+  } */
+  .box-bottom-inputs {
+    /* background-color: aqua; */
+    width: 100%;
+    border-right: 1px solid yellow;
+  }
+  .box-bottom-buttons {
+    /* background-color: saddlebrown; */
+    width: 100%; 
+  } 
 }
