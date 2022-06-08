@@ -79,12 +79,12 @@ start.addEventListener("click", function () {
 
       timePassed = timePassed += 1;
       timeLeft = TIME_LIMIT - timePassed;
-      console.log(timeLeft);
+      // console.log(timeLeft);
       document.getElementById("base-timer-label").innerHTML =
         t.hours + ":" + t.minutes + ":" + t.seconds;
       setCircleDasharray();
       setRemainingPathColor(timeLeft);
-      console.log("Total: " + t.total);
+      // console.log("Total: " + t.total);
       if (t.total <= 0) {
         clearInterval(timeinterval);
       }
