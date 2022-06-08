@@ -23,9 +23,9 @@ body {
 
 .box {
   display: grid;
-  grid-template-rows: 70% 30%;
+  grid-template-rows: 60% 40%;
   border: 1px solid black;
-  height: 550px; 
+  height: 700px;
   min-width: 31em;
   width: 700px;
   /* width: 40em;  */
@@ -49,17 +49,36 @@ body {
 }
 
 .box-bottom {
+  display: grid;
+  grid-template-rows: 50% 50%;
   border: 1px solid black;
   grid-row: 2;
   height: 100%;
   padding: 10px;
 }
-
+.box-bottom-inputs {
+  grid-row: 2;
+  display: flex;
+  background-color: aquamarine;
+}
+.box-bottom-buttons {
+  grid-row: 1;
+  display: flex;
+  background-color: azure;
+}
+.start,
+  .pause,
+  .resume,
+  .stop {
+    background-color: transparent;
+    width: 50%;
+  }
 .hours,
 .minutes,
 .seconds {
   width: 10em;
 }
+
 .base-timer {
   position: relative;
   width: 300px;
@@ -127,11 +146,14 @@ body {
     width: 550px;
     margin: 10px;
   }
+
   .box-bottom {
     width: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
   }
+
   .hours,
   .minutes,
   .seconds {
@@ -139,24 +161,20 @@ body {
     border-radius: 0.5em;
     height: 2.5em;
   }
-  .start, .pause, .resume, .stop {
-    background-color: transparent;
-    width: 50%;
-  }
-  .box-bottom-inputs { 
+  .box-bottom-inputs {
+    grid-row: 1;
     font-size: .8em;
-    display: flex;
     flex-wrap: wrap;
     grid-column: 1;
     min-width: 19em;
     width: 100%;
     height: 100%;
-  } 
+  }
+
   .box-bottom-buttons {
-    display: flex;
     flex-wrap: wrap;
     grid-column: 2;
     width: 100%;
     height: 100%;
-  }   
+  }
 }
