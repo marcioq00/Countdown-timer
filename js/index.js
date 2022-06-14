@@ -29,9 +29,7 @@ start.addEventListener("click", function () {
 
   let deadline = new Date(current_time + result * 60 * 1000);
   let parseDeadline = Date.parse(deadline);
-  let parseNewDate = Date.parse(new Date());
-  let TIME_LIMIT = (parseDeadline - parseNewDate) / 1000 + 1;
-
+  let TIME_LIMIT = (parseDeadline - current_time) / 1000;
   let timePassed = 0;
   let timeLeft = TIME_LIMIT;
   let remainingPathColor = COLOR_CODES.info.color;
@@ -43,79 +41,62 @@ start.addEventListener("click", function () {
     let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
     return { total: t, hours: hours, minutes: minutes, seconds: seconds };
   }
-
   document.querySelector(".base-timer").innerHTML = `
-        <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <g class="base-timer__circle">
-            <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
-            <path
-              id="base-timer-path-remaining"
-              stroke-dasharray="283"
-              class="base-timer__path-remaining ${remainingPathColor}"
-              d="
-                M 50, 50
-                m -45, 0
-                a 45,45 0 1,0 90,0
-                a 45,45 0 1,0 -90,0
-              "
-            ></path>
-          </g>
-        </svg>
-        <span id="base-timer-label" class="base-timer__label"></span>
-      `;
+  <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <g class="base-timer__circle">
+      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
+      <path
+        id="base-timer-path-remaining"
+        stroke-dasharray="283"
+        class="base-timer__path-remaining ${remainingPathColor}"
+        d="
+          M 50, 50
+          m -45, 0
+          a 45,45 0 1,0 90,0
+          a 45,45 0 1,0 -90,0
+        "
+      ></path>
+    </g>
+  </svg>
+  <span id="base-timer-label" class="base-timer__label"></span>
+`;
+  function addedDigit(end) {
+    const m = time_remaining(end);
+    m.hours = m.hours < 10 ? "0" + m.hours : m.hours;
+    m.minutes = m.minutes < 10 ? "0" + m.minutes : m.minutes;
+    m.seconds = m.seconds < 10 ? "0" + m.seconds : m.seconds;
+    document.getElementById("base-timer-label").innerHTML =
+      m.hours + ":" + m.minutes + ":" + m.seconds;
+  }
+  addedDigit(deadline);
   let timeinterval;
-
   function stopInterval() {
     clearInterval(timeinterval);
     document.getElementById("base-timer-label").innerHTML = "00:" + "00:00";
     document.getElementById("base-timer-path-remaining").style.color = "gray";
   }
+  run_clock("timer", deadline);
   function run_clock(id, endtime) {
     function updateClock() {
       const t = time_remaining(endtime);
       t.hours = t.hours < 10 ? "0" + t.hours : t.hours;
       t.minutes = t.minutes < 10 ? "0" + t.minutes : t.minutes;
       t.seconds = t.seconds < 10 ? "0" + t.seconds : t.seconds;
-
       timePassed = timePassed += 1;
       timeLeft = TIME_LIMIT - timePassed;
-      // console.log(timeLeft);
       document.getElementById("base-timer-label").innerHTML =
         t.hours + ":" + t.minutes + ":" + t.seconds;
       setCircleDasharray();
       setRemainingPathColor(timeLeft);
-      // console.log("Total: " + t.total);
-      if (t.total <= 0) {
+      if (t.total === 0) {
         clearInterval(timeinterval);
       }
     }
-    updateClock();
     timeinterval = setInterval(updateClock, 1000);
-  }
-  run_clock("timer", deadline);
-
-  let paused = false;
-  let time_left;
-
-  function pauseClock() {
-    if (!paused) {
-      paused = true;
-      clearInterval(timeinterval);
-      time_left = time_remaining(deadline).total;
-    }
-  }
-
-  function resumeClock() {
-    if (paused) {
-      paused = false;
-      // update the deadline to preserve the amount of time remaining
-      deadline = new Date(Date.parse(new Date()) + time_left);
-      run_clock("timer", deadline);
-    }
   }
 
   function setRemainingPathColor(timeLeft) {
-    const { alert, warning, info, basic } = COLOR_CODES;
+    const { alert, warning, info } = COLOR_CODES;
     if (timeLeft <= alert.threshold) {
       document
         .getElementById("base-timer-path-remaining")
@@ -145,6 +126,26 @@ start.addEventListener("click", function () {
     document
       .getElementById("base-timer-path-remaining")
       .setAttribute("stroke-dasharray", circleDasharray);
+  }
+
+  let paused = false;
+  let time_left;
+
+  function pauseClock() {
+    if (!paused) {
+      paused = true;
+      clearInterval(timeinterval);
+      time_left = time_remaining(deadline).total;
+    }
+  }
+
+  function resumeClock() {
+    if (paused) {
+      paused = false;
+      // update the deadline to preserve the amount of time remaining
+      deadline = new Date(Date.parse(new Date()) + time_left);
+      run_clock("timer", deadline);
+    }
   }
 
   btnStop.addEventListener("click", stopInterval);
