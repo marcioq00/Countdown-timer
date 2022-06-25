@@ -24,7 +24,6 @@ body {
 .box {
   display: grid;
   grid-template-rows: 60% 40%;
-  /* border: 1px solid black; */
   height: 700px;
   min-width: 31em;
   width: 700px;
@@ -50,7 +49,6 @@ body {
 .box-bottom {
   display: grid;
   grid-template-rows: 50% 50%;
-  /* border: 1px solid black; */
   grid-row: 2;
   height: 100%;
   padding: 10px;
@@ -151,7 +149,6 @@ body {
 
 @media (max-width: 576px) {
   .box {
-    border: 1px solid black;
     min-height: 30em;
     height: 600px;
     min-width: 19em;
@@ -176,7 +173,7 @@ body {
 
   .box-bottom-inputs {
     grid-row: 1;
-    font-size: .8em;
+    font-size: 0.8em;
     flex-wrap: wrap;
     grid-column: 1;
     min-width: 19em;
