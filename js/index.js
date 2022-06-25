@@ -75,7 +75,13 @@ start.addEventListener("click", function () {
     document.getElementById("base-timer-label").innerHTML = "00:" + "00:00";
     document.getElementById("base-timer-path-remaining").style.color = "gray";
   }
-  run_clock("timer", deadline);
+  function blockingTimeNegative() {
+    if (result == "") {
+    } else {
+      run_clock("timer", deadline);
+    }
+  }
+  blockingTimeNegative();
   function run_clock(id, endtime) {
     function updateClock() {
       const t = time_remaining(endtime);
